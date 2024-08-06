@@ -1,0 +1,19 @@
+services:
+  app:
+    build:
+      context: .
+      args:
+        IMAGE: ghcr.io/nationalarchives/tna-python-root
+        IMAGE_TAG: preview
+    environment:
+      - ENVIRONMENT=develop
+      - CONFIG=config.Develop
+      - SECRET_KEY=abc123
+    ports:
+      - 83:8080
+    volumes:
+      - ./:/app
+  dev:
+    image: ghcr.io/nationalarchives/tna-python-dev:preview
+    volumes:
+      - ./:/app
