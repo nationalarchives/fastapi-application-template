@@ -15,5 +15,8 @@ RUN tna-build
 # Copy in the application code
 COPY --chown=app . .
 
+# Delete tests and docs
+RUN rm -fR /app/test /app/docs
+
 # Run the application
 CMD ["tna-run", "-a", "fastapi_app:app"]
