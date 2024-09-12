@@ -6,7 +6,7 @@ from fastapi.testclient import TestClient
 from app import create_app
 
 
-class HealthcheckBlueprintTestCase(unittest.TestCase):
+class GreetingsBlueprintTestCase(unittest.TestCase):
     def setUp(self):
         self.app = create_app("config.Test")
         self.client = TestClient(self.app)
