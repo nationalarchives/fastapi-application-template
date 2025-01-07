@@ -9,8 +9,6 @@ class Features(object):
 
 
 class Base(object):
-    ENVIRONMENT: str = os.environ.get("ENVIRONMENT", "production")
-
     BUILD_VERSION: str = os.environ.get("BUILD_VERSION", "")
 
     SECRET_KEY: str = os.environ.get("SECRET_KEY", "")
@@ -33,6 +31,4 @@ class Develop(Base, Features):
 
 
 class Test(Base, Features):
-    ENVIRONMENT = "test"
-
     FORCE_HTTPS = False
