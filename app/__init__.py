@@ -6,9 +6,7 @@ from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
 def create_app(config_class):
     config = get_config(config_class)
 
-    app = FastAPI(
-        title="TNA FastAPI Application", log_level=config.get("LOG_LEVEL")
-    )
+    app = FastAPI(title="TNA FastAPI Application", log_level=config.get("LOG_LEVEL"))
     app.state.config = {"BASE_URI": config.get("BASE_URI")}
     if config.get("FORCE_HTTPS"):
         app.add_middleware(HTTPSRedirectMiddleware)
