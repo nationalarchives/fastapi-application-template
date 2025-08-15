@@ -1,4 +1,4 @@
-from app.greetings import router
+from app.hello import router
 from pydantic import BaseModel
 
 
@@ -9,18 +9,9 @@ class GreetingResponse(BaseModel):
         super().__init__(message=f"{greeting}, {name}")
 
 
-@router.get("/hello/")
+@router.get("/")
 async def hello(
-    name: str,
+    name: str = "World",
 ) -> GreetingResponse:
     response = GreetingResponse(greeting="Hello", name=name)
-    return response
-
-
-@router.get("/{greeting}/")
-async def greeting(
-    greeting: str,
-    name: str,
-) -> GreetingResponse:
-    response = GreetingResponse(greeting=greeting, name=name)
     return response

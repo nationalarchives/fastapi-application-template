@@ -9,6 +9,8 @@ services:
       - RUNTIME=develop
       - CONFIG=config.Develop
       - SECRET_KEY=abc123
+      - CONTAINER_IMAGE=local
+      - BUILD_VERSION=development
     ports:
       - 83:8080
     volumes:

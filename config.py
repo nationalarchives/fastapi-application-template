@@ -1,34 +1,30 @@
-import json
 import os
 
 from app.lib.util import strtobool
 
 
-class Features(object):
+class Features:
     pass
 
 
-class Base(object):
+class Production(Features):
+    CONTAINER_IMAGE: str = os.environ.get("CONTAINER_IMAGE", "")
     BUILD_VERSION: str = os.environ.get("BUILD_VERSION", "")
 
     SECRET_KEY: str = os.environ.get("SECRET_KEY", "")
 
-    BASE_URI: str = os.environ.get("BASE_URI", "/api/v1")
+    BASE_URI: str = os.environ.get("BASE_URI", "/api/").strip("/")
 
     FORCE_HTTPS: bool = strtobool(os.getenv("FORCE_HTTPS", "True"))
 
 
-class Production(Base, Features):
+class Staging(Production):
     pass
 
 
-class Staging(Base, Features):
-    pass
-
-
-class Develop(Base, Features):
+class Develop(Production):
     FORCE_HTTPS = strtobool(os.getenv("FORCE_HTTPS", "False"))
 
 
-class Test(Base, Features):
+class Test(Production):
     FORCE_HTTPS = False

@@ -2,4 +2,4 @@ from fastapi import APIRouter
 
 router = APIRouter()
 
-from app.greetings import routes  # noqa: E402,F401
+from app.hello import routes  # noqa: E402,F401

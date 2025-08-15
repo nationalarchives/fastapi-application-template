@@ -7,9 +7,13 @@
 docker compose up -d
 ```
 
-### Docs
+### Endpoints
 
-http://localhost:83/docs
+- Docs: http://localhost:83/docs
+- OpenAPI schema: http://localhost:83/openapi.json
+- Build details: http://localhost:83/api/version/
+- Healthcheck: http://localhost:83/healthcheck/live/
+- Example: http://localhost:83/api/v1/hello/
 
 ### Run tests
 
@@ -30,5 +34,5 @@ In addition to the [base Docker image variables](https://github.com/nationalarch
 | Variable      | Purpose                                       | Default             |
 | ------------- | --------------------------------------------- | ------------------- |
 | `CONFIG`      | The configuration to use                      | `config.Production` |
-| `BASE_URI`    | The base URI for the API                      | `/api/v1`           |
+| `BASE_URI`    | The base URI for the API                      | `/api/`             |
 | `FORCE_HTTPS` | Redirect requests to HTTPS as part of the CSP | _none_              |

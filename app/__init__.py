@@ -11,13 +11,18 @@ def create_app(config_class):
     if config.get("FORCE_HTTPS"):
         app.add_middleware(HTTPSRedirectMiddleware)
 
-    from .greetings import routes as greetings_routes
     from .healthcheck import routes as healthcheck_routes
+    from .hello import routes as hello_routes
+    from .version import routes as version_routes
+
+    def prefix_url(path: str, version: int = 0) -> str:
+        return f"/{config.get('BASE_URI').strip('/')}{f'/v{version}' if version else ''}/{path.strip('/')}"
 
     app.include_router(healthcheck_routes.router, prefix="/healthcheck")
+    app.include_router(version_routes.router, prefix=prefix_url("version"))
     app.include_router(
-        greetings_routes.router,
-        prefix=f"{config.get('BASE_URI')}/greetings",
+        hello_routes.router,
+        prefix=prefix_url("hello", 1),
         tags=["Examples"],
     )
 
