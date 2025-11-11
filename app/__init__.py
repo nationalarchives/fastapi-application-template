@@ -11,6 +11,26 @@ def create_app(config_class):
     if config.get("FORCE_HTTPS"):
         app.add_middleware(HTTPSRedirectMiddleware)
 
+    @app.get("/", tags=["home"])
+    async def home():
+        return {
+            "title": app.title,
+            "description": "Get started building a National Archives FastAPI application.",
+            "useful_links": [
+                {
+                    "The National Archives Engineering Handbook": "https://nationalarchives.github.io/engineering-handbook/"
+                },
+                {
+                    "Backend resources": [
+                        {
+                            "The National Archives base Docker images": "https://github.com/nationalarchives/docker",
+                            "Digital Services Docker build actions": "https://github.com/nationalarchives/ds-docker-actions",
+                        }
+                    ]
+                },
+            ],
+        }
+
     from .healthcheck import routes as healthcheck_routes
     from .hello import routes as hello_routes
     from .version import routes as version_routes
@@ -23,7 +43,7 @@ def create_app(config_class):
     app.include_router(
         hello_routes.router,
         prefix=prefix_url("hello", 1),
-        tags=["Examples"],
+        tags=["Example"],
     )
 
     return app

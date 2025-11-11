@@ -21,4 +21,4 @@ COPY --chown=app . .
 RUN rm -fR /app/test /app/docs
 
 # Run the application
-CMD ["tna-run", "-a", "fastapi_app:app"]
+CMD ["tna-asgi", "main:app"]
