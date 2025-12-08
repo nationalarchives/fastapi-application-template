@@ -8,16 +8,14 @@ ENV CONTAINER_IMAGE="$CONTAINER_IMAGE"
 ARG BUILD_VERSION
 ENV BUILD_VERSION="$BUILD_VERSION"
 
-USER app
-
 # Copy in the dependencies config
-COPY pyproject.toml poetry.lock ./
+COPY --chown=app pyproject.toml poetry.lock ./
 
 # Install the dependencies
 RUN tna-build
 
 # Copy in the application code
-COPY . .
+COPY --chown=app . .
 
 # Clean up build dependencies
 RUN tna-clean
