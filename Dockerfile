@@ -9,13 +9,13 @@ ARG BUILD_VERSION
 ENV BUILD_VERSION="$BUILD_VERSION"
 
 # Copy in the dependencies config
-COPY --chown=app pyproject.toml poetry.lock ./
+COPY pyproject.toml poetry.lock ./
 
 # Install the dependencies
 RUN tna-build
 
 # Copy in the application code
-COPY --chown=app . .
+COPY . .
 
 # Clean up build dependencies
 RUN tna-clean
