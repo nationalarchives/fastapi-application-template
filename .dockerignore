@@ -1,6 +1,13 @@
 .dockerignore
 .git
+.github
+.pytest_cache
+.vscode
 docker-compose.yml
 Dockerfile
+LICENCE
 README.md
+mkdocs.yml
 .gitignore
+docs
+test

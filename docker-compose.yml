@@ -3,10 +3,9 @@ services:
     build:
       context: .
       args:
-        IMAGE: ghcr.io/nationalarchives/tna-python-root
-        IMAGE_TAG: 0
+        IMAGE: ghcr.io/nationalarchives/tna-python-dev
+        IMAGE_TAG: latest
     environment:
-      - RUNTIME=develop
       - ALLOW_INSECURE=true
       - CONFIG=config.Develop
       - SECRET_KEY=abc123
@@ -14,11 +13,6 @@ services:
       - BUILD_VERSION=development
     ports:
       - 83:8080
-    volumes:
-      - ./:/app
-
-  dev:
-    image: ghcr.io/nationalarchives/tna-python-dev:preview
     volumes:
       - ./:/app
 
