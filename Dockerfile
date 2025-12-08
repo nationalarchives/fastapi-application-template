@@ -8,6 +8,8 @@ ENV CONTAINER_IMAGE="$CONTAINER_IMAGE"
 ARG BUILD_VERSION
 ENV BUILD_VERSION="$BUILD_VERSION"
 
+USER app
+
 # Copy in the dependencies config
 COPY pyproject.toml poetry.lock ./
 
