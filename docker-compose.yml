@@ -3,8 +3,8 @@ services:
     build:
       context: .
       args:
-        IMAGE: ghcr.io/nationalarchives/tna-python-root
-        IMAGE_TAG: 0
+        IMAGE: ghcr.io/nationalarchives/tna-python-dev
+        IMAGE_TAG: latest
     environment:
       - ALLOW_INSECURE=true
       - CONFIG=config.Develop
