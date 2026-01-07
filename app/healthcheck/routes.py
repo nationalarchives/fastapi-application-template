@@ -1,6 +1,6 @@
 from app.healthcheck import router
 
 
-@router.get("/live/", include_in_schema=False)
+@router.get("/live/")
 async def healthcheck() -> str:
     return "ok"

@@ -16,8 +16,6 @@ class HealthcheckBlueprintTestCase(unittest.TestCase):
         self.assertEqual(rv.status_code, 200)
         self.assertIn("ok", rv.text)
 
-    # TODO
-    # def test_trailing_slash_redirects(self):
-    #     rv = self.client.get("/healthcheck/live")
-    #     self.assertEqual(rv.status_code, 307)
-    #     self.assertEqual(rv.location, f"{self.domain}/healthcheck/live/")
+    def test_trailing_slash_redirects(self):
+        rv = self.client.get("/healthcheck/live")
+        self.assertIn("/healthcheck/live/", str(rv.url))
