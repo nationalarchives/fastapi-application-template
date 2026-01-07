@@ -17,7 +17,7 @@ class HelloBlueprintTestCase(unittest.TestCase):
         self.assertEqual(rv.status_code, 200)
         response_json = json.loads(rv.text)
         self.assertIn("message", response_json)
-        self.assertEqual(response_json["message"], "Hello, World")
+        self.assertEqual(response_json["message"], "Hello, stranger")
 
     def test_hello_with_name(self):
         rv = self.client.get("/api/v1/hello/", params={"name": "John Smith"})

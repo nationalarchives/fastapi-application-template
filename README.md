@@ -9,11 +9,11 @@ docker compose up -d
 
 ### Endpoints
 
-- Docs: http://localhost:83/docs
-- OpenAPI schema: http://localhost:83/openapi.json
-- Build details: http://localhost:83/api/version/
-- Healthcheck: http://localhost:83/healthcheck/live/
-- Example: http://localhost:83/api/v1/hello/
+- Docs: http://localhost:83/docs (Do not remove)
+- OpenAPI schema: http://localhost:83/openapi.json (Do not remove)
+- Build details: http://localhost:83/build/ (Do not remove - requires `CONTAINER_IMAGE` and `BUILD_VERSION` from CI/CD)
+- Healthcheck: http://localhost:83/healthcheck/live/ (Do not remove)
+- Application example endpoint: http://localhost:83/api/v1/hello/
 
 ### Run tests
 

@@ -11,7 +11,7 @@ class GreetingResponse(BaseModel):
 
 @router.get("/")
 async def hello(
-    name: str = "World",
+    name: str = "stranger",
 ) -> GreetingResponse:
     response = GreetingResponse(greeting="Hello", name=name)
     return response
