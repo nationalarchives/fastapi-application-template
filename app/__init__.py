@@ -35,8 +35,8 @@ def create_app(config_class):
     from .hello import routes as hello_routes
     from .version import routes as version_routes
 
-    def prefix_url(path: str, version: int = 0) -> str:
-        return f"/{config.get('BASE_URI').strip('/')}{f'/v{version}' if version else ''}/{path.strip('/')}"
+    def prefix_url(path: str, version: int = 1) -> str:
+        return f"/{config['BASE_URI'].strip('/')}{f'/v{version}' if version else ''}/{path.strip('/')}"
 
     app.include_router(healthcheck_routes.router, prefix="/healthcheck")
     app.include_router(version_routes.router, prefix=prefix_url("version"))
