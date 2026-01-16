@@ -6,8 +6,6 @@ services:
         IMAGE: ghcr.io/nationalarchives/tna-python-dev
         IMAGE_TAG: latest
     environment:
-      - ALLOW_INSECURE=true
-      - APPLICATION_PROTOCOL=http
       - CONFIG=config.Develop
       - SECRET_KEY=abc123
       - CONTAINER_IMAGE=local
