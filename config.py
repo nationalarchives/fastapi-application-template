@@ -23,7 +23,7 @@ class Staging(Production):
 
 
 class Develop(Production):
-    FORCE_HTTPS = strtobool(os.getenv("FORCE_HTTPS", "False"))
+    pass
 
 
 class Test(Production):
