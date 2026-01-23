@@ -30,7 +30,7 @@ def create_app(config_class):
                     "description": "Digital Services Docker build actions",
                 },
             ],
-            "api_endpoints": [
+            "routes": [
                 {
                     "url": "http://localhost:83/docs",
                     "description": "API documentation and testing interface",
