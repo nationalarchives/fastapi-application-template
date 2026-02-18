@@ -1,3 +1,4 @@
+import os
 import unittest
 
 from fastapi.testclient import TestClient
@@ -7,6 +8,7 @@ from app import create_app
 
 class HealthcheckBlueprintTestCase(unittest.TestCase):
     def setUp(self):
+        os.environ["CONFIG"] = "config.Test"
         self.app = create_app("config.Test")
         self.client = TestClient(self.app)
         self.domain = "http://localhost:83"
@@ -19,3 +21,8 @@ class HealthcheckBlueprintTestCase(unittest.TestCase):
     def test_trailing_slash_redirects(self):
         rv = self.client.get("/healthcheck/live")
         self.assertIn("/healthcheck/live/", str(rv.url))
+
+    def test_healthcheck_version(self):
+        rv = self.client.get("/healthcheck/version/")
+        self.assertEqual(rv.status_code, 200)
+        self.assertIn("test", rv.text)
