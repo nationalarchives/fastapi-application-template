@@ -1,5 +1,5 @@
-from app.lib.get_config import get_config
 from app.build import router
+from app.lib.get_config import get_config
 
 
 @router.get("/")
