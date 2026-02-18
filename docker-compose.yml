@@ -9,12 +9,13 @@ services:
       - CONFIG=config.Develop
       - SECRET_KEY=abc123
       - FORCE_HTTPS=False
-      - CONTAINER_IMAGE=local
-      - BUILD_VERSION=development
     ports:
       - 83:8080
     volumes:
       - ./:/app
+    healthcheck:
+      start_period: 10s
+      start_interval: 2s
 
   docs:
     image: squidfunk/mkdocs-material
