@@ -27,4 +27,6 @@ class Develop(Production):
 
 
 class Test(Production):
-    FORCE_HTTPS = False
+    BUILD_VERSION: str = "test"
+
+    FORCE_HTTPS: bool = False
