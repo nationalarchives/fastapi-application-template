@@ -1,4 +1,5 @@
 import json
+import os
 import unittest
 
 from fastapi.testclient import TestClient
@@ -8,6 +9,7 @@ from app import create_app
 
 class HelloBlueprintTestCase(unittest.TestCase):
     def setUp(self):
+        os.environ["CONFIG"] = "config.Test"
         self.app = create_app("config.Test")
         self.client = TestClient(self.app)
         self.domain = "http://localhost"
