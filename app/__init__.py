@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
 
 
-def create_app(config_class):
+def create_app(config_class) -> FastAPI:
     config = get_config(config_class)
 
     app = FastAPI(title="TNA FastAPI Application", log_level=config.get("LOG_LEVEL"))
