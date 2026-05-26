@@ -1,5 +1,6 @@
-from app.hello import router
 from pydantic import BaseModel
+
+from app.hello import router
 
 
 class GreetingResponse(BaseModel):
