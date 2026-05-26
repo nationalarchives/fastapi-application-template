@@ -15,7 +15,7 @@ fastapi = {extras = ["standard"], version = "^0.121.1"}
 optional = true
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^8.1.1"
+pytest = ">=8.1.1,<10.0.0"
 requests-mock = "^1.12.1"
 httpx = "^0.27.0"
 
