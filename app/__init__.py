@@ -1,6 +1,7 @@
-from app.lib.get_config import get_config
 from fastapi import FastAPI
 from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
+
+from app.lib.get_config import get_config
 
 
 def create_app(config_class) -> FastAPI:
