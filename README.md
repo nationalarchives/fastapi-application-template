@@ -36,3 +36,11 @@ In addition to the [base Docker image variables](https://github.com/nationalarch
 | `CONFIG`      | The configuration to use   | `config.Production` |
 | `BASE_URI`    | The base URI for the API   | `/api/`             |
 | `FORCE_HTTPS` | Redirect requests to HTTPS | _none_              |
+
+### Server logging
+
+The container's `tna-asgi` launcher passes the `LOG_LEVEL` environment variable
+to Uvicorn's `--log-level` option. `LOG_LEVEL` can be configured via environment variables
+to change the logging level.
+Supported levels are `critical`, `error`, `warning`, `info`, `debug` and `trace`.
+The base Docker image defaults to `warning` - set `LOG_LEVEL` in the environment to override it.

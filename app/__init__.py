@@ -7,7 +7,7 @@ from app.lib.get_config import get_config
 def create_app(config_class) -> FastAPI:
     config = get_config(config_class)
 
-    app = FastAPI(title="TNA FastAPI Application", log_level=config.get("LOG_LEVEL"))
+    app = FastAPI(title="TNA FastAPI Application")
     app.state.config = {"BASE_URI": config.get("BASE_URI")}
     if config.get("FORCE_HTTPS"):
         app.add_middleware(HTTPSRedirectMiddleware)
