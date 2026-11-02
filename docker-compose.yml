@@ -7,6 +7,7 @@ services:
         IMAGE_TAG: preview
     environment:
       - CONFIG=config.Develop
+      - LOG_LEVEL=${LOG_LEVEL:-info}
       - SECRET_KEY=abc123
       - FORCE_HTTPS=False
     ports:
