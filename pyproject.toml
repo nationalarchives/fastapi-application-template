@@ -11,7 +11,7 @@ tna-utilities = "~1.9"
 optional = true
 
 [tool.poetry.group.dev.dependencies]
-pytest = "~9.2"
+pytest = "~9.1"
 requests-mock = "~1.12"
 httpx = "~0.28"
 
