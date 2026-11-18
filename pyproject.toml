@@ -5,8 +5,8 @@ package-mode=false
 python = "~3.15"
 requests = "~2.34"
 tna-utilities = "~1.9"
-fastapi = {extras = ["standard"], version = "^0.162.0"}
-pydantic-settings = "^2.0.0"
+fastapi = {extras = ["standard"], version = "~0.162"}
+pydantic-settings = "~2.16"
 
 [tool.poetry.group.dev]
 optional = true
