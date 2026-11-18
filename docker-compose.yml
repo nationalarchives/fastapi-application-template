@@ -6,8 +6,7 @@ services:
         IMAGE: ghcr.io/nationalarchives/tna-python-dev
         IMAGE_TAG: preview
     environment:
-      - CONFIG=config.Develop
-      - LOG_LEVEL=${LOG_LEVEL:-info}
+      - BUILD_VERSION=local
       - SECRET_KEY=abc123
       - FORCE_HTTPS=False
     ports:

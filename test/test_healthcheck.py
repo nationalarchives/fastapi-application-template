@@ -25,4 +25,4 @@ class HealthcheckBlueprintTestCase(unittest.TestCase):
     def test_healthcheck_version(self):
         rv = self.client.get("/healthcheck/version/")
         self.assertEqual(rv.status_code, 200)
-        self.assertIn("test", rv.text)
+        self.assertIn("local", rv.text)
