@@ -1,3 +1,6 @@
+import logging
+import sys
+
 from fastapi import FastAPI
 from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
 
@@ -7,10 +10,15 @@ from app.lib.get_config import get_config
 def create_app(config_class) -> FastAPI:
     config = get_config(config_class)
 
-    app = FastAPI(title="TNA FastAPI Application", log_level=config.get("LOG_LEVEL"))
+    app = FastAPI(title="TNA FastAPI Application")
     app.state.config = {"BASE_URI": config.get("BASE_URI")}
     if config.get("FORCE_HTTPS"):
         app.add_middleware(HTTPSRedirectMiddleware)
+
+    logging.basicConfig(
+        level=getattr(logging, config.get("LOG_LEVEL").upper(), logging.WARNING),
+        format="%(asctime)s [%(levelname)s] [%(name)s] %(message)s",
+    )
 
     @app.get("/", tags=["home"], include_in_schema=False)
     async def home():
